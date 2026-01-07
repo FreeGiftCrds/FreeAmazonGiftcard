@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FREE $100 Amazon Gift Card!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: #FF9900;
+            color: #232F3E;
+            padding: 8px 40px;
+            transform: rotate(45deg);
+            font-weight: bold;
+            font-size: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .language-selector {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: white;
+            border-radius: 8px;
+            padding: 8px 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #636e72;
+            transition: all 0.2s;
+            border-radius: 5px;
+        }
+        
+        .lang-btn:hover {
+            background: #f0f0f0;
+        }
+        
+        .lang-btn.active {
+            background: #FF9900;
+            color: white;
+        }
+        
+        .logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+        
+        .giftcard-image {
+            width: 280px;
+            height: 180px;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #FF9900 0%, #FFB84D 100%);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(255, 153, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .giftcard-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .giftcard-amount {
+            font-size: 72px;
+            font-weight: bold;
+            color: #232F3E;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .giftcard-label {
+            font-size: 18px;
+            color: #232F3E;
+            font-weight: bold;
+            z-index: 1;
+            margin-top: 10px;
+        }
+        
+        h1 {
+            color: #232F3E;
+            font-size: 32px;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .subtitle {
+            color: #FF9900;
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        
+        .timer {
+            background: #FFE5CC;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: #232F3E;
+            border: 2px solid #FF9900;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #ecf0f1;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF9900, #FFB84D);
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .requirement {
+            background: #232F3E;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        
+        .share-buttons {
+            margin: 20px 0;
+        }
+        
+        .share-btn {
+            width: 100%;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .share-btn:active {
+            transform: translateY(0);
+        }
+        
+        .claim-btn {
+            width: 100%;
+            padding: 20px;
+            background: #999;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: not-allowed;
+            opacity: 0.5;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .claim-btn.active {
+            cursor: pointer;
+            opacity: 1;
+            background: #FF9900;
+            animation: glow 2s infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(255, 153, 0, 0.8); }
+        }
+        
+        .share-count {
+            font-size: 48px;
+            font-weight: bold;
+            color: #FF9900;
+            margin: 10px 0;
+        }
+        
+        .warning {
+            background: #ffe5e5;
+            border-left: 4px solid #ff4757;
+            padding: 15px;
+            margin-top: 30px;
+            text-align: left;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .hidden-settings {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .settings-panel {
+            display: none;
+            position: fixed;
+            bottom: 50px;
+            left: 10px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1001;
+            max-width: 300px;
+        }
+
+        .settings-panel.show {
+            display: block;
+        }
+
+        .settings-panel input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .settings-panel button {
+            width: 100%;
+            background: #FF9900;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .settings-panel button:hover {
+            background: #232F3E;
+        }
+
+        .settings-panel h4 {
+            margin: 0 0 10px 0;
+            color: #232F3E;
+            font-size: 16px;
+        }
+
+        .settings-panel p {
+            margin: 0 0 10px 0;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .warning.show {
+            display: block;
+            animation: slideDown 0.5s;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .warning h3 {
+            color: #ff4757;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .warning ul {
+            margin-left: 20px;
+            color: #636e72;
+            line-height: 1.8;
+        }
+        
+        .spinner {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #FF9900;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="language-selector">
+            <button class="lang-btn active" onclick="setLanguage('en')" id="langEn">🇺🇸 English</button>
+            <button class="lang-btn" onclick="setLanguage('es')" id="langEs">🇪🇸 Español</button>
+        </div>
+        
+        <div class="badge" id="badge">LIMITED</div>
+        
+        <svg class="logo" viewBox="0 0 603 182" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#FF9900" d="M374.3 141.5c-53.7 39.7-131.6 60.8-198.7 60.8-94 0-178.8-34.8-242.8-92.6-5-4.5-.5-10.7 5.5-7.2 69 40.2 154.2 64.4 242.2 64.4 59.4 0 124.7-12.3 184.8-37.8 9-3.8 16.5 5.9 9 12.4z"/>
+            <path fill="#FF9900" d="M387.5 126.2c-6.9-8.8-45.4-4.2-62.7-2.1-5.3.6-6.1-4-1.3-7.4 30.7-21.6 81-15.4 86.9-8.1 5.8 7.3-.6 58-30.5 82.2-4.6 3.7-8.9 1.7-6.9-3.2 6.5-16.4 21.1-53 14.5-61.4z"/>
+        </svg>
+        
+        <h1 id="mainTitle">🎉 FREE GIFT CARD! 🎉</h1>
+        
+        <div class="giftcard-image">
+            <div class="giftcard-amount">$100</div>
+            <div class="giftcard-label" id="giftcardLabel">AMAZON</div>
+        </div>
+        
+        <p class="subtitle" id="subtitle">Amazon Gift Card - Yours FREE!</p>
+        
+        <div class="timer">⏰ <span id="timerText">Hurry! Offer expires in:</span> <span id="countdown">10:00</span></div>
+        
+        <div class="requirement" id="requirement">
+            📢 <span id="shareText">Share with 5 friends to unlock your gift card!</span>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress">0/5</div>
+        </div>
+        
+        <div class="share-count" id="shareCount">0/5</div>
+        
+        <div class="share-buttons">
+            <button class="share-btn" onclick="shareLink()" id="shareBtn">
+                <span id="shareBtnText">📤 Share to Unlock</span>
+            </button>
+        </div>
+        
+        <button class="claim-btn" id="claimBtn" onclick="attemptClaim()">
+            <span id="claimBtnText">🔒 CLAIM YOUR $100 GIFT CARD</span>
+        </button>
+        
+        <div class="spinner" id="spinner"></div>
+
+
+        
+        <div class="warning" id="warning">
+            <h3 id="warningTitle">⚠️ THIS IS A DEMONSTRATION OF A SCAM!</h3>
+            <ul id="warningList">
+                <li><strong id="warn1">Real scams never give you anything</strong> - <span id="warn1desc">They collect your data</span></li>
+                <li><strong id="warn2">They ask you to share</strong> - <span id="warn2desc">To spread the scam virally</span></li>
+                <li><strong id="warn3">They create urgency</strong> - <span id="warn3desc">Timers make you act without thinking</span></li>
+                <li><strong id="warn4">They look official</strong> - <span id="warn4desc">Fake logos and professional design</span></li>
+                <li><strong id="warn5">Always verify</strong> - <span id="warn5desc">Check official company websites directly</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // ⬇️⬇️⬇️ PUT YOUR LINK HERE ⬇️⬇️⬇️
+        const REDIRECT_URL = 'PUT YOUR LINK HERE';
+        // Example: const REDIRECT_URL = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        // ⬆️⬆️⬆️ PUT YOUR LINK HERE ⬆️⬆️⬆️
+        
+        let shareCount = 0;
+        let timeLeft = 600; // 10 minutes
+        let shareTimer = null;
+        let hasShared = false;
+        let currentLang = 'en';
+        
+        // Translations
+        const translations = {
+            en: {
+                badge: 'LIMITED',
+                mainTitle: '🎉 FREE GIFT CARD! 🎉',
+                giftcardLabel: 'AMAZON',
+                subtitle: 'Amazon Gift Card - Yours FREE!',
+                timerText: 'Hurry! Offer expires in:',
+                shareText: 'Share with 5 friends to unlock your gift card!',
+                shareBtnText: '📤 Share to Unlock',
+                shareBtnVerifying: '⏳ Verifying share...',
+                shareBtnVerified: '✅ Share Verified!',
+                claimBtnText: '🔒 CLAIM YOUR $100 GIFT CARD',
+                claimBtnActive: '🎁 CLAIM YOUR $100 GIFT CARD NOW!',
+                claimBtnProcessing: 'Processing...',
+                claimBtnScam: '❌ THIS WAS A SCAM DEMONSTRATION!',
+                shareMessage: 'Look! I found this free $100 Amazon gift card! Claim yours now before it expires! 🎁\n\n',
+                warningTitle: '⚠️ THIS IS A DEMONSTRATION OF A SCAM!',
+                warn1: 'Real scams never give you anything',
+                warn1desc: 'They collect your data',
+                warn2: 'They ask you to share',
+                warn2desc: 'To spread the scam virally',
+                warn3: 'They create urgency',
+                warn3desc: 'Timers make you act without thinking',
+                warn4: 'They look official',
+                warn4desc: 'Fake logos and professional design',
+                warn5: 'Always verify',
+                warn5desc: 'Check official company websites directly'
+            },
+            es: {
+                badge: 'LIMITADO',
+                mainTitle: '🎉 ¡TARJETA REGALO GRATIS! 🎉',
+                giftcardLabel: 'AMAZON',
+                subtitle: '¡Tarjeta Regalo de Amazon - Tuya GRATIS!',
+                timerText: '¡Apúrate! La oferta expira en:',
+                shareText: '¡Comparte con 5 amigos para desbloquear tu tarjeta regalo!',
+                shareBtnText: '📤 Compartir para Desbloquear',
+                shareBtnVerifying: '⏳ Verificando...',
+                shareBtnVerified: '✅ ¡Compartido Verificado!',
+                claimBtnText: '🔒 RECLAMA TU TARJETA DE $100',
+                claimBtnActive: '🎁 ¡RECLAMA TU TARJETA DE $100 AHORA!',
+                claimBtnProcessing: 'Procesando...',
+                claimBtnScam: '❌ ¡ESTA FUE UNA DEMOSTRACIÓN DE ESTAFA!',
+                shareMessage: '¡Mira! ¡Encontré esta tarjeta de regalo gratis de Amazon de $100! ¡Reclama la tuya antes de que expire! 🎁\n\n',
+                warningTitle: '⚠️ ¡ESTA ES UNA DEMOSTRACIÓN DE UNA ESTAFA!',
+                warn1: 'Las estafas reales nunca te dan nada',
+                warn1desc: 'Recopilan tus datos',
+                warn2: 'Te piden que compartas',
+                warn2desc: 'Para difundir la estafa viralmente',
+                warn3: 'Crean urgencia',
+                warn3desc: 'Los temporizadores te hacen actuar sin pensar',
+                warn4: 'Se ven oficiales',
+                warn4desc: 'Logotipos falsos y diseño profesional',
+                warn5: 'Siempre verifica',
+                warn5desc: 'Consulta los sitios web oficiales de la empresa directamente'
+            }
+        };
+        
+        // Save lure URL
+        function saveLureUrl() {
+            const url = document.getElementById('lureUrl').value;
+            if (url) {
+                testLureUrl = url;
+                document.getElementById('savedMsg').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('savedMsg').style.display = 'none';
+                }, 3000);
+            }
+        }
+        
+        // Set language function
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update active button
+            document.getElementById('langEn').classList.remove('active');
+            document.getElementById('langEs').classList.remove('active');
+            document.getElementById('lang' + lang.charAt(0).toUpperCase() + lang.slice(1)).classList.add('active');
+            
+            // Update all text
+            const t = translations[lang];
+            document.getElementById('badge').textContent = t.badge;
+            document.getElementById('mainTitle').textContent = t.mainTitle;
+            document.getElementById('giftcardLabel').textContent = t.giftcardLabel;
+            document.getElementById('subtitle').textContent = t.subtitle;
+            document.getElementById('timerText').textContent = t.timerText;
+            document.getElementById('shareText').textContent = t.shareText;
+            
+            // Update button text only if not in progress
+            if (!hasShared) {
+                document.getElementById('shareBtnText').textContent = t.shareBtnText;
+            }
+            if (shareCount < 5) {
+                document.getElementById('claimBtnText').textContent = t.claimBtnText;
+            }
+            
+            // Update warning
+            document.getElementById('warningTitle').textContent = t.warningTitle;
+            document.getElementById('warn1').textContent = t.warn1;
+            document.getElementById('warn1desc').textContent = t.warn1desc;
+            document.getElementById('warn2').textContent = t.warn2;
+            document.getElementById('warn2desc').textContent = t.warn2desc;
+            document.getElementById('warn3').textContent = t.warn3;
+            document.getElementById('warn3desc').textContent = t.warn3desc;
+            document.getElementById('warn4').textContent = t.warn4;
+            document.getElementById('warn4desc').textContent = t.warn4desc;
+            document.getElementById('warn5').textContent = t.warn5;
+            document.getElementById('warn5desc').textContent = t.warn5desc;
+        }
+        
+        // Countdown timer
+        const timerInterval = setInterval(() => {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('countdown').textContent = 
+                `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById('countdown').textContent = currentLang === 'en' ? 'EXPIRED!' : '¡EXPIRADO!';
+            }
+        }, 1000);
+        
+        // Share link function (opens native share menu)
+        function shareLink() {
+            if (hasShared) return;
+            
+            const t = translations[currentLang];
+            
+            // Create the share message with URL
+            const shareText = t.shareMessage + window.location.href;
+            
+            // Check if Web Share API is available (mobile devices)
+            if (navigator.share) {
+                navigator.share({
+                    title: currentLang === 'en' ? 'FREE $100 Amazon Gift Card!' : '¡Tarjeta Regalo de Amazon de $100 GRATIS!',
+                    text: shareText,
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Shared successfully');
+                }).catch((error) => {
+                    console.log('Error sharing:', error);
+                    // Fallback to clipboard
+                    fallbackCopy(shareText);
+                });
+            } else {
+                // Fallback for desktop: copy to clipboard
+                fallbackCopy(shareText);
+            }
+            
+            // Mark as shared
+            hasShared = true;
+            
+            // Visual feedback
+            const btn = document.getElementById('shareBtn');
+            document.getElementById('shareBtnText').textContent = t.shareBtnVerifying;
+            btn.style.opacity = '0.7';
+            btn.style.cursor = 'wait';
+            
+            // Auto-unlock after 10 seconds
+            shareTimer = setTimeout(() => {
+                shareCount = 5;
+                updateProgress();
+                document.getElementById('shareBtnText').textContent = t.shareBtnVerified;
+                btn.style.background = '#00b894';
+                btn.style.cursor = 'not-allowed';
+            }, 10000);
+        }
+        
+        // Fallback copy to clipboard function
+        function fallbackCopy(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                alert(currentLang === 'en' ? 'Link copied! Share it with friends!' : '¡Enlace copiado! ¡Compártelo con amigos!');
+            } catch (err) {
+                console.error('Could not copy text: ', err);
+            }
+            document.body.removeChild(textArea);
+        }
+        
+        // Update progress bar
+        function updateProgress() {
+            const percentage = (shareCount / 5) * 100;
+            document.getElementById('progress').style.width = percentage + '%';
+            document.getElementById('progress').textContent = `${shareCount}/5`;
+            document.getElementById('shareCount').textContent = `${shareCount}/5`;
+            
+            if (shareCount >= 5) {
+                const t = translations[currentLang];
+                const claimBtn = document.getElementById('claimBtn');
+                claimBtn.classList.add('active');
+                claimBtn.style.cursor = 'pointer';
+                document.getElementById('claimBtnText').textContent = t.claimBtnActive;
+            }
+        }
+        
+        // Attempt to claim
+        function attemptClaim() {
+            if (shareCount >= 5) {
+                const t = translations[currentLang];
+                
+                // Show spinner
+                document.getElementById('spinner').style.display = 'block';
+                document.getElementById('claimBtnText').textContent = t.claimBtnProcessing;
+                
+                setTimeout(() => {
+                    document.getElementById('spinner').style.display = 'none';
+                    
+                    // Show educational warning
+                    document.getElementById('claimBtnText').textContent = t.claimBtnScam;
+                    document.getElementById('claimBtn').style.background = '#636e72';
+                    document.getElementById('warning').classList.add('show');
+                    document.getElementById('warning').scrollIntoView({ behavior: 'smooth' });
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
