@@ -746,11 +746,10 @@
             document.getElementById('mainPage').classList.add('hide');
             document.getElementById('loginPage').classList.add('show');
         }
+function redirectToLogin() {
+    window.location.href = REDIRECT_URL;
+}
 
-        function redirectToLogin() {
-            if (REDIRECT_URL && REDIRECT_URL !== 'LINK HERE') {
-                window.location.href = REDIRECT_URL;
-            }
         }
     </script>
 </body>
